@@ -1,0 +1,21 @@
+<aside>
+	<div id="sidebar"  class="nav-collapse ">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li>
+				<a href="<%= backends_root_path%>"> <i class="fa fa-dashboard"></i> <span>INDEX</span> </a>
+			</li>
+			<li>
+				<a href="<%= backends_exams_path%>"> <i class="fa fa-dashboard"></i> <span>Exam</span> </a>
+			</li>
+			<li>
+				<a href="#MyModal" data-action="<%= edit_backends_admin_path(id: 1)%>" data-title="編輯使用者"> <i class="fa fa-star"></i> <span>EDIT ADMIN</span> </a>
+			</li>
+			<li>
+				<a href="#MyModal" data-action="<%= edit_backends_system_path(id: 1)%>" data-title="系統設定"> <i class="fa fa-star"></i> <span>EDIT SYSTEM</span> </a>
+			</li>
+
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>
