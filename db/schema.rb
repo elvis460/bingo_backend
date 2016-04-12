@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403031636) do
+ActiveRecord::Schema.define(version: 20160409140553) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20160403031636) do
     t.string   "password_digest", limit: 255
   end
 
+  create_table "exam_sets", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "answer",     limit: 255
+    t.string   "question",   limit: 255
+    t.string   "tips",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
+  end
+
   create_table "exams", force: :cascade do |t|
     t.string   "question",   limit: 255
     t.string   "answer",     limit: 255
@@ -29,6 +39,15 @@ ActiveRecord::Schema.define(version: 20160403031636) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "level",      limit: 4
+  end
+
+  create_table "game_records", force: :cascade do |t|
+    t.string   "exam",       limit: 255
+    t.string   "situation",  limit: 255
+    t.string   "cost_time",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "systems", force: :cascade do |t|
@@ -49,11 +68,11 @@ ActiveRecord::Schema.define(version: 20160403031636) do
     t.string   "account",         limit: 255
     t.string   "password",        limit: 255
     t.string   "birthday",        limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "password_digest", limit: 255
     t.integer  "identity",        limit: 4
-    t.integer  "record",          limit: 4
+    t.integer  "score",           limit: 4,   default: 0
   end
 
 end

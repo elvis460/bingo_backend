@@ -36,6 +36,7 @@
 							<th class="text-center col-lg-3">題目</th>
 							<th class="text-center col-lg-3">答案</th>
 							<th class="text-center col-lg-3">提示</th>
+							<th class="text-center col-lg-1">Level</th>
 							<th class="text-center col-lg-1"></th>
 						</tr>
 					</thead>
@@ -46,6 +47,7 @@
 							<td><%= exam.question %></td>
 							<td><%= exam.answer %></td>
 							<td><%= exam.tips %></td>
+							<td><%= exam.level %></td>
 							<td> <%= link_to(edit_backends_exam_path(exam),class: "btn btn-block btn-sm btn-warning") do %> <i class="fa fa-pencil"></i> <% end %>
 							<%= link_to(backends_exam_path(exam),class: "btn btn-block btn-sm btn-danger", method: :delete,data:{confirm: "Are You sure?"}) do %><i class="fa fa-trash-o"></i><% end %> </td>
 						</tr>

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 	def add_score
 		@user = User.find(params[:user][:user_id])
-		@user.score += params[:user][:score]
+		@user.score += params[:user][:score].to_i
 		@user.save
 		render json: {score: @user.score}
 	end
