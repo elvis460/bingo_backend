@@ -10,6 +10,7 @@ class GameRecordsController < ApplicationController
 			@game_record.situation = params[:game_record][:situation]
 			@game_record.exam = params[:game_record][:exam]
 			@game_record.user_id = params[:game_record][:user_id]
+			@game_record.score = params[:game_record][:score]
 			@game_record.save
 			if @game_record.save
 				render json: '1'

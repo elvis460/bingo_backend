@@ -2,8 +2,15 @@ class ExamsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def output
-		render json: Exam.where(id: (1..Exam.count).to_a.shuffle.first(25))
-		return
+		if params[:fit] == '5'
+			@level5 = Exam.where(level: 5).pluck(:id)
+			@level4 = Exam.where(level: 4).pluck(:id)
+			@level3 = Exam.where(level: 3).pluck(:id).to_a.shuffle.first(6)
+			@exams = @level5+@level4+@level3
+			render json: Exam.where(id: @exams)
+		else
+			render json: Exam.where(id: (1..Exam.count).to_a.shuffle.first(25))
+		end
 	end
 	
 	# def index

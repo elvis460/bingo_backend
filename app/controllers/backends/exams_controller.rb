@@ -26,6 +26,6 @@ class Backends::ExamsController < BackendsController
 		@exam = params[:id]? @exam = Exam.find(params[:id]) : Exam.new
 	end
 	def exam_params
-		params.require(:exam).permit(:question,:answer,:tips)
+		params.require(:exam).permit(:question,:answer,:tips,:level)
 	end
 end
